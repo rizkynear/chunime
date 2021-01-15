@@ -58,7 +58,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $anime->title }}
                                                 <div class="table-links">
-                                                    <a href="#">Episodes</a>
+                                                    <a href="{{ route('admin.anime.episode.index', $anime->slug) }}">Episodes</a>
                                                     <div class="bullet"></div>
                                                     <a href="{{ route('admin.anime.edit', $anime->slug) }}">Edit</a>
                                                     <div class="bullet"></div>

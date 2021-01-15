@@ -16,8 +16,13 @@ class Anime extends Model
     ];
 
     protected $with = [
-        'genres'
+        'genres', 'episodes'
     ];
+    
+    public function episodes()
+    {
+        return $this->hasMany(Episode::class);
+    }
 
     public function genres()
     {
