@@ -27,5 +27,12 @@ Route::group(['prefix' => 'animes', 'as' => 'anime.'], function () {
         Route::post('{episode}/publish', 'EpisodeController@publish')->name('publish');
         Route::patch('{episode}/update', 'EpisodeController@update')->name('update');
         Route::delete('{episode}/delete', 'EpisodeController@delete')->name('delete');
+        
+        Route::group(['prefix' => '{episode}/downloads', 'as' => 'download.'], function() {
+            Route::get('/', 'DownloadController@index')->name('index');
+            Route::post('store', 'DownloadController@store')->name('store');
+            Route::patch('{download}/update', 'DownloadController@update')->name('update');
+            Route::delete('{download}/delete', 'DownloadController@delete')->name('delete');
+        });
     });
 });
