@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('login', 'Admin\Auth\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login', 'Admin\Auth\LoginController@login');
+    Route::post('logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
+});
