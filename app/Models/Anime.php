@@ -29,6 +29,11 @@ class Anime extends Model
         return $this->belongsToMany(Genre::class, 'pivot_anime_genres', 'anime_id', 'genre_id');
     }
 
+    public function getPublishedEpisodeAttribute()
+    {
+        return $this->episodes()->where('status', Episode::PUBLISH)->count();
+    }
+
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()

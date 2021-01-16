@@ -48,7 +48,7 @@
                                         <th>Title</th>
                                         <th>Type</th>
                                         <th>Status</th>
-                                        <th>Release Date</th>
+                                        <th>Published Episode</th>
                                         <th>Created At</th>
                                     </tr>
                                 </thead>
@@ -67,7 +67,7 @@
                                             </td>
                                             <td>{{ $anime->type }}</td>
                                             <td>{{ $anime->status }}</td>
-                                            <td>{{ date('d M Y', strtotime($anime->release_date)) }}</td>
+                                            <td>{{ $anime->published_episode }}</td>
                                             <td>{{ date('d M Y', strtotime($anime->created_at)) }}</td>
                                         </tr>
                                     @endforeach

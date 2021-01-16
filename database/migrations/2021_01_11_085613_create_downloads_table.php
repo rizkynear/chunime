@@ -19,6 +19,11 @@ class CreateDownloadsTable extends Migration
             $table->string('server_name');
             $table->string('quality');
             $table->timestamps();
+
+            $table->foreign('episode_id')
+                ->references('id')
+                ->on('episodes')
+                ->onDelete('cascade');
         });
     }
 
