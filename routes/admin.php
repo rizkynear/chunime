@@ -36,3 +36,10 @@ Route::group(['prefix' => 'animes', 'as' => 'anime.'], function () {
         });
     });
 });
+
+Route::group(['prefix' => 'accounts', 'as' => 'account.'], function () {
+    Route::get('/', 'AccountController@index')->name('index');
+    Route::post('store', 'AccountController@store')->name('store');
+    Route::patch('{account}/update', 'AccountController@update')->name('update');
+    Route::delete('{account}/delete', 'AccountController@delete')->name('delete');
+});

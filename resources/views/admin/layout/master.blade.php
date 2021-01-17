@@ -54,6 +54,8 @@
                     <li class="menu-header">Main</li>
                     <li><a class="nav-link" href="{{ route('admin.genre.index') }}"><i class="fas fa-list"></i><span>Genres</span></a></li>
                     <li><a class="nav-link" href="{{ route('admin.anime.index') }}"><i class="fas fa-video"></i><span>Animes</span></a></li>
+                    <li class="menu-header">Data</li>
+                    <li><a class="nav-link" href="{{ route('admin.account.index') }}"><i class="fas fa-users"></i><span>Accounts</span></a></li>
                 </ul>
             </aside>
       </div>
