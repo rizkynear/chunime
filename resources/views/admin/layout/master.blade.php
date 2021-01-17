@@ -115,6 +115,62 @@
   <script src="{{ asset('js/scripts.js') }}"></script>
   <script src="{{ asset('js/custom.js') }}"></script>
 
+  <script>
+    function findAspectRatio(x, y) {
+        var raw = [x, y];
+        // Now apply Euclid's algorithm to the two numbers.
+        while (Math.max(x, y) % Math.min(x, y) != 0) {
+            if (x > y) {
+                x %= y;
+            }
+            else {
+                y %= x;
+            }
+        }
+
+        // When the while loop finishes the minimum of x and y is the HCF.
+        var mod = Math.min(x, y);
+
+        return [raw[0] / mod, raw[1] / mod];
+    }
+
+    function imageCropper(input, parent, cropWidth, cropHeight, crop = true) {
+        var aspectRatio = findAspectRatio(cropWidth, cropHeight)
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+                var image = parent.find('.image-preview').attr('src', e.target.result);
+                
+                if (crop) {
+                    image.cropper('destroy');
+
+                    image.cropper({
+                        viewMode: 2,
+                        aspectRatio: aspectRatio[0] / aspectRatio[1],
+                        zoomable: false,
+                        center: false,
+                        ready: function () {
+                            $(this).cropper("setData", {
+                                width: cropWidth,
+                                height: cropHeight,
+                            });
+                        },
+                        crop: function(event) {
+                            parent.find('.x-coordinate').val(event.detail.x);
+                            parent.find('.y-coordinate').val(event.detail.y);
+                            parent.find('.width').val(event.detail.width);
+                            parent.find('.height').val(event.detail.height);
+                        }
+                    });
+                }
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }   
+    }
+  </script>
+
   <!-- Page Specific JS File -->
   @yield('script')
 </body>

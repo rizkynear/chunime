@@ -11,6 +11,11 @@ class Anime extends Model
 {
     use HasSlug, ScopeFilterTrait;
 
+    const CROP_DEFAULT = [1000, 500];
+    const CROP_MEDIUM  = [400, 200];
+    const CROP_SMALL   = [100, 50];
+    const IMAGE_FOLDER = 'animes';
+
     protected $fillable = [
         'title', 'description', 'type', 'status', 'studio', 'quality', 'rating', 'duration', 'total_episode', 'release_date'
     ];

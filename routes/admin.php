@@ -15,9 +15,11 @@ Route::group(['prefix' => 'genres', 'as' => 'genre.'], function () {
 
 Route::group(['prefix' => 'animes', 'as' => 'anime.'], function () {
     Route::get('/', 'AnimeController@index')->name('index');
+    Route::get('crop-size', 'AnimeController@getCropSize')->name('crop-size');
     Route::get('create', 'AnimeController@create')->name('create');
     Route::post('store', 'AnimeController@store')->name('store');
     Route::get('{anime}/edit', 'AnimeController@edit')->name('edit');
+    Route::put('{anime}/update-thumbnail', 'AnimeController@updateThumbnail')->name('update.thumbnail');
     Route::patch('{anime}/update', 'AnimeController@update')->name('update');
     Route::delete('{anime}/delete', 'AnimeController@delete')->name('delete');
 

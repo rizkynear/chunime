@@ -6,11 +6,21 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Filter\AnimeFilter;
 use App\Http\Requests\Admin\AnimeRequest;
+use App\Http\Requests\Admin\AnimeThumbnailRequest;
 use App\Models\Anime;
 use App\Models\Genre;
+use App\Util\Image\Image;
 
 class AnimeController extends Controller
 {
+    public function getCropSize()
+    {
+        return response()->json([
+            'width'  => Anime::CROP_DEFAULT[0],
+            'height' => Anime::CROP_DEFAULT[1]
+        ]);
+    }
+
     public function index(Request $request, AnimeFilter $filter)
     {
         $animes = Anime::latest()->paginate(10);
@@ -57,6 +67,25 @@ class AnimeController extends Controller
         $anime->genres()->sync($request->genres);
 
         return redirect(route('admin.anime.index'));
+    }
+
+    public function updateThumbnail(AnimeThumbnailRequest $request, Anime $anime)
+    {
+        $image = new Image(Anime::IMAGE_FOLDER, $request);
+
+        if (!is_null($anime->image)) {
+            $image->delete($anime->image);
+        }
+
+        $image->crop(Anime::CROP_DEFAULT)
+            ->medium(Anime::CROP_MEDIUM)
+            ->small(Anime::CROP_SMALL);
+
+        $anime->image = $image->name();
+        
+        $anime->save();
+
+        return back();
     }
 
     public function delete(Anime $anime)

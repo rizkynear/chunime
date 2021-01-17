@@ -14,3 +14,9 @@ $(document).on('click', '.btn-delete', function() {
 
     $('#modal-delete').modal();
 })
+
+$(document).on('click', '.btn-close', function() {
+    $('.image-preview').cropper('destroy');
+    $('.invalid-feedback').remove();
+    $('.modal').modal('hide');
+});

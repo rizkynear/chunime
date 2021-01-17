@@ -2,6 +2,7 @@
 
 @section('style-lib')
 <link rel="stylesheet" href="{{ asset('css/selectric.css') }}">
+<link rel="stylesheet" href="{{ asset('css/cropper.css') }}">
 @endsection
 
 @section('content')
@@ -58,6 +59,8 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $anime->title }}
                                                 <div class="table-links">
+                                                    <a type="button" class="btn-thumbnail" data-toggle="modal" data-url="{{ route('admin.anime.update.thumbnail', $anime->slug) }}" data-image="{{ $anime->image ? asset('storage/images/animes/' . $anime->image) : '' }}">Thumbnail</a>
+                                                    <div class="bullet"></div>
                                                     <a href="{{ route('admin.anime.episode.index', $anime->slug) }}">Episodes</a>
                                                     <div class="bullet"></div>
                                                     <a href="{{ route('admin.anime.edit', $anime->slug) }}">Edit</a>
@@ -83,18 +86,90 @@
         </div>
     </div>
 </section>
+
+<div class="modal fade" id="modal-thumbnail" tabindex="-1" role="dialog" aria-labelledby="modalThumbnailLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Thumbnail</h5>
+                <button type="button" class="close btn-close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="" method="post" id="form-thumbnail" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                
+                <div class="modal-body">
+                    <div class="form-group">
+                        <img class="img-fluid w-100 image-preview" src="{{ old('image_prev') }}" alt="Thumbnail Preview">
+                        <input type="hidden" class="x-coordinate" name="x">
+                        <input type="hidden" class="y-coordinate" name="y">
+                        <input type="hidden" class="width" name="width">
+                        <input type="hidden" class="height" name="height">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only">Image</label>
+                        <input type="file" class="form-control" id="input-image" name="image">
+                        @error('image')
+                            <div class="invalid-feedback d-block">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="image_prev" value="{{ old('image_prev') }}">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary btn-close">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('script-lib')
 <script src="{{ asset('js/jquery.selectric.min.js') }}"></script>
+<script src="{{ asset('js/cropper.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/jquery-cropper.js') }}" type="text/javascript"></script>
 @endsection
 
 @section('script')
+@if ($errors->any()) 
+<script>
+    $('#modal-thumbnail').modal();
+</script>
+@endif
 <script src="{{ asset('js/features-posts.js') }}"></script>
 
 <script>
-    $('.btn-detail').on('click', function() {
+    $('#input-image').on('change', function() {
+        var parent = $(this).parent().parent().parent();
+        var $input = this;
 
+        $.ajax({
+            url: "{{ route('admin.anime.crop-size') }}",
+            type: 'get',
+            success:function(data) {
+                imageCropper($input, parent, data.width, data.height);
+            }
+        });
+    });
+
+    $('.btn-thumbnail').on('click', function() {
+        let image = $(this).data('image');
+        const url = $(this).data('url');
+
+        if (image == '') {
+            image = 'https://via.placeholder.com/1000x500';
+        }
+
+        $('#form-thumbnail').attr('action', url);
+        $('.image-preview').attr('src', image);
+        $('input[name="image_prev"]').val(image);
+
+        $('#modal-thumbnail').modal();
     });
 </script>
 @endsection
