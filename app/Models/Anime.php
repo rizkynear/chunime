@@ -43,6 +43,7 @@ class Anime extends Model
     {
         return SlugOptions::create()
             ->generateSlugsFrom('title')
+            ->allowDuplicateSlugs()
             ->saveSlugsTo('slug');
     }
 
