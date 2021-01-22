@@ -149,3 +149,11 @@
 </section>
 <!-- Anime Section End -->
 @endsection
+
+@section('script')
+<script type="text/javascript">
+    var ouo_token = 'g3GkyK6o';
+    var domains = ['depositfiles.com', 'rapidshare.com', 'uploading.com', 'uploadable.ch', 'letitbit.net', 'turbobit.net', 'acefile.co']; 
+</script>
+<script src="//cdn.ouo.io/js/full-page-script.js"></script>
+@endsection
