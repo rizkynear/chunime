@@ -103,6 +103,8 @@
 
     <!-- Js Plugins -->
     <script src="{{ asset('js/alluser.js') }}"></script>
+    
+    @yield('script')
 
 
 </body>
