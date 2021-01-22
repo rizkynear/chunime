@@ -47,6 +47,12 @@ class Episode extends Model
         return $this->status == self::PUBLISH;
     }
 
+    public function scopeNewest($query)
+    {
+        return $query->where('status', self::PUBLISH)
+            ->orderBy('published_at', 'desc');
+    }
+
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()

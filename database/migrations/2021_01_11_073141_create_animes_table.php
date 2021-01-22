@@ -23,7 +23,7 @@ class CreateAnimesTable extends Migration
             $table->string('quality');
             $table->float('rating');
             $table->integer('duration');
-            $table->integer('total_episode');
+            $table->integer('total_episode')->nullable();
             $table->timestamp('release_date');
             $table->timestamps();
         });

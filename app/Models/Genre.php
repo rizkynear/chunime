@@ -15,6 +15,11 @@ class Genre extends Model
         'name'
     ];
 
+    public function animes()
+    {
+        return $this->belongsToMany(Anime::class, 'pivot_anime_genres', 'genre_id', 'anime_id');
+    }
+
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()

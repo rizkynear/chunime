@@ -32,7 +32,7 @@ class AnimeRequest extends FormRequest
             'quality'       => 'required',
             'rating'        => 'required',
             'duration'      => 'required|numeric',
-            'total_episode' => 'required|numeric',
+            'total_episode' => 'numeric|nullable',
             'release_date'  => 'required',
             'genres'        => 'required'
         ];

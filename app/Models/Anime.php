@@ -23,10 +23,14 @@ class Anime extends Model
     protected $with = [
         'genres', 'episodes'
     ];
+
+    protected $appends = [
+        'main_genre_name', 'published_episode', 'main_genre_slug'
+    ];
     
     public function episodes()
     {
-        return $this->hasMany(Episode::class);
+        return $this->hasMany(Episode::class)->orderBy('slug');
     }
 
     public function genres()
@@ -37,6 +41,26 @@ class Anime extends Model
     public function getPublishedEpisodeAttribute()
     {
         return $this->episodes()->where('status', Episode::PUBLISH)->count();
+    }
+
+    public function getMainGenreNameAttribute()
+    {
+        return optional($this->genres->first())->name;
+    }
+
+    public function getMainGenreSlugAttribute()
+    {
+        return optional($this->genres->first())->slug;
+    }
+
+    public function scopeCompleted($query)
+    {
+        return $query->where('status', 'LIKE', "%Completed%");
+    }
+
+    public function scopeHasEpisode($query)
+    {
+        return $query->has('episodes');
     }
 
     public function getSlugOptions() : SlugOptions

@@ -91,8 +91,8 @@ class Image
     public function delete($image)
     {
         File::delete($this->imageFolder . '/' . $image);
-        File::delete($this->imageFolder . '/' . 'small' . $image);
-        File::delete($this->imageFolder . '/' . 'medium' . $image);
+        File::delete($this->imageFolder . '/' . 'small/' . $image);
+        File::delete($this->imageFolder . '/' . 'medium/' . $image);
     }
 
     protected function save($folder = '', $prefix = '')

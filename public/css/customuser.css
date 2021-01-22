@@ -1,0 +1,122 @@
+.hero__items {
+  padding: 250px 0 42px 50px;
+}
+@media screen and (max-width: 479px) {
+  .hero__items {
+    padding: 40px 10px 0 20px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .product {
+    padding-top: 30px;
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .product__item__pic {
+    height: 165px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .anime-name {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .product__sidebar {
+    padding-top: 0;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .anime__details__pic {
+    margin-bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .episode_release {
+    font-size: 10px;
+  }
+}
+
+.anime__details__episodes a {
+  font-size: 12px;
+  padding: 3px 8px;
+  margin-right: 0;
+  margin-bottom: 10px;
+}
+
+.separator {
+  height: 5px;
+  background-color: #e53637;
+}
+
+@media screen and (max-width: 479px) {
+  .hero__text h2 {
+    font-size: 26px;
+  }
+}
+
+.hero__text .label a {
+  color: #e53637;
+}
+
+.page-item {
+  margin: 0 5px;
+}
+
+.page-item a, .page-item span {
+  display: inline-block;
+  font-size: 15px;
+  color: #b7b7b7;
+  font-weight: 600;
+  height: 50px;
+  width: 50px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  line-height: 48px;
+  text-align: center;
+  -webkit-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  transition: all, 0.3s;
+}
+
+.page-link {
+  position: relative;
+  padding: unset;
+  background-color: transparent;
+}
+.page-link:hover {
+  z-index: 2;
+  color: #e9ecef;
+  text-decoration: none;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.page-item:last-child .page-link {
+  border-top-right-radius: unset;
+  border-bottom-right-radius: unset;
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: auto;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: transparent;
+  border-color: #fff;
+}
+
+/*# sourceMappingURL=customuser.css.map */
