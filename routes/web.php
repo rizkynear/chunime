@@ -11,11 +11,15 @@
 |
 */
 
+Route::get('public', function() {
+    return redirect('/');
+});
+
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', function() {
         return redirect('/admin/dashboard');
     });
-    
+
     Route::get('login', 'Admin\Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('login', 'Admin\Auth\LoginController@login');
     Route::post('logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
