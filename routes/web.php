@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/public', function() {
-    return redirect('/');
-});
-
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', function() {
         return redirect('/admin/dashboard');
