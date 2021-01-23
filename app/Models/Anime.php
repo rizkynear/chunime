@@ -11,7 +11,7 @@ class Anime extends Model
 {
     use HasSlug, ScopeFilterTrait;
 
-    const CROP_DEFAULT = [1200, 600];
+    const CROP_DEFAULT = [1500, 750];
     const CROP_MEDIUM  = [600, 300];
     const CROP_SMALL   = [200, 100];
     const IMAGE_FOLDER = 'animes';
