@@ -11,9 +11,8 @@ class Anime extends Model
 {
     use HasSlug, ScopeFilterTrait;
 
-    const CROP_DEFAULT = [1500, 750];
-    const CROP_MEDIUM  = [600, 300];
-    const CROP_SMALL   = [200, 100];
+    const CROP_BANNER = [1200, 600];
+    const CROP_THUMBNAIL = [265, 440];
     const IMAGE_FOLDER = 'animes';
 
     protected $fillable = [

@@ -6,18 +6,26 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Filter\AnimeFilter;
 use App\Http\Requests\Admin\AnimeRequest;
-use App\Http\Requests\Admin\AnimeThumbnailRequest;
+use App\Http\Requests\Admin\AnimeImageRequest;
 use App\Models\Anime;
 use App\Models\Genre;
 use App\Util\Image\Image;
 
 class AnimeController extends Controller
 {
-    public function getCropSize()
+    public function getCropThumbnail()
     {
         return response()->json([
-            'width'  => Anime::CROP_DEFAULT[0],
-            'height' => Anime::CROP_DEFAULT[1]
+            'width'  => Anime::CROP_THUMBNAIL[0],
+            'height' => Anime::CROP_THUMBNAIL[1]
+        ]);
+    }
+
+    public function getCropBanner()
+    {
+        return response()->json([
+            'width'  => Anime::CROP_BANNER[0],
+            'height' => Anime::CROP_BANNER[1]
         ]);
     }
 
@@ -69,19 +77,34 @@ class AnimeController extends Controller
         return redirect(route('admin.anime.index'));
     }
 
-    public function updateThumbnail(AnimeThumbnailRequest $request, Anime $anime)
+    public function updateThumbnail(AnimeImageRequest $request, Anime $anime)
     {
         $image = new Image(Anime::IMAGE_FOLDER, $request);
 
-        if (!is_null($anime->image)) {
-            $image->delete($anime->image);
+        if (!is_null($anime->image_thumbnail)) {
+            $image->delete($anime->image_thumbnail);
         }
 
-        $image->crop(Anime::CROP_DEFAULT)
-            ->medium(Anime::CROP_MEDIUM)
-            ->small(Anime::CROP_SMALL);
+        $image->crop(Anime::CROP_THUMBNAIL, 'thumbnail/');
 
-        $anime->image = $image->name();
+        $anime->image_thumbnail = $image->name();
+        
+        $anime->save();
+
+        return back();
+    }
+
+    public function updateBanner(AnimeImageRequest $request, Anime $anime)
+    {
+        $image = new Image(Anime::IMAGE_FOLDER, $request);
+
+        if (!is_null($anime->image_banner)) {
+            $image->delete($anime->image_banner);
+        }
+
+        $image->crop(Anime::CROP_BANNER, 'banner/');
+
+        $anime->image_banner = $image->name();
         
         $anime->save();
 

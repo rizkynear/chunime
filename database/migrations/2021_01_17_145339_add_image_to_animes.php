@@ -14,7 +14,8 @@ class AddImageToAnimes extends Migration
     public function up()
     {
         Schema::table('animes', function (Blueprint $table) {
-            $table->string('image')->nullable();
+            $table->string('image_thumbnail')->nullable();
+            $table->string('image_banner')->nullable();
         });
     }
 
@@ -26,7 +27,8 @@ class AddImageToAnimes extends Migration
     public function down()
     {
         Schema::table('animes', function (Blueprint $table) {
-            $table->dropColumn('image');
+            $table->dropColumn('image_thumbnail');
+            $table->dropColumn('image_banner');
         });
     }
 }

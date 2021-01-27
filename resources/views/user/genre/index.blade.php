@@ -21,7 +21,7 @@
                             <div class="col-lg-4 col-md-6 col-6">
                                 <div class="product__item">
                                     <a href="{{ route('user.anime', $anime->slug) }}">
-                                        <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/images/animes/' . $anime->image) }}">
+                                        <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/images/animes/thumbnail/' . $anime->image_thumbnail) }}">
                                             <div class="ep">{{ $anime->published_episode }} Episode</div>
                                         </div>
                                     </a>

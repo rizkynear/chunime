@@ -29,7 +29,7 @@ class Image
         return $this->name;
     }
 
-    public function crop(array $size)
+    public function crop(array $size, $folder = '')
     {
         $this->image->crop(
             (int) $this->data->width,
@@ -41,7 +41,7 @@ class Image
         $this->image->backup();
         $this->image->resize($size[0], $size[1]);
 
-        $this->save();
+        $this->save($folder);
 
         $this->image->reset();
 
@@ -91,8 +91,8 @@ class Image
     public function delete($image)
     {
         File::delete($this->imageFolder . '/' . $image);
-        File::delete($this->imageFolder . '/' . 'small/' . $image);
-        File::delete($this->imageFolder . '/' . 'medium/' . $image);
+        File::delete($this->imageFolder . '/' . 'banner/' . $image);
+        File::delete($this->imageFolder . '/' . 'thumbnail/' . $image);
     }
 
     protected function save($folder = '', $prefix = '')

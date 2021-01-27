@@ -7,7 +7,7 @@
         <div class="anime__details__content">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="anime__details__pic set-bg" data-setbg="{{ asset('storage/images/animes/' . $anime->image) }}">
+                    <div class="anime__details__pic set-bg" data-setbg="{{ asset('storage/images/animes/thumbnail/' . $anime->image_thumbnail) }}">
                     </div>
                 </div>
                 <div class="col-lg-9">

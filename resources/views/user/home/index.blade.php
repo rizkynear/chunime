@@ -6,7 +6,7 @@
     <div class="container">
         <div class="hero__slider owl-carousel">
             @foreach ($bannerAnimes as $anime)
-                <div class="hero__items set-bg" data-setbg="{{ asset('storage/images/animes/' . $anime->image) }}" style="min-height: 350px;">
+                <div class="hero__items set-bg" data-setbg="{{ asset('storage/images/animes/banner/' . $anime->image_banner) }}" style="min-height: 350px;">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
@@ -46,7 +46,7 @@
                             <div class="col-lg-4 col-md-6 col-6">
                                 <div class="product__item">
                                     <a href="{{ route('user.episode', $episode->slug) }}">
-                                        <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/images/animes/medium/' . $episode->anime->image) }}">
+                                        <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/images/animes/thumbnail/' . $episode->anime->image_thumbnail) }}">
                                             <div class="ep">{{ $episode->title }}</div>
                                             <!-- <div class="comment"><i class="fa fa-comments"></i> 11</div>
                                             <div class="view"><i class="fa fa-eye"></i> 9141</div> -->
@@ -80,7 +80,7 @@
                         <div class="col-lg-4 col-md-6 col-6">
                             <div class="product__item">
                                 <a href="{{ route('user.anime', $anime->slug) }}">
-                                    <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/images/animes/medium/' . $anime->image) }}">
+                                    <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/images/animes/thumbnail/' . $anime->image_thumbnail) }}">
                                         <div class="ep">{{ $anime->published_episode }} Episode</div>
                                     </div>
                                 </a>

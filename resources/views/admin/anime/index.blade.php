@@ -59,7 +59,9 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $anime->title }}
                                                 <div class="table-links">
-                                                    <a type="button" class="btn-thumbnail" data-toggle="modal" data-url="{{ route('admin.anime.update.thumbnail', $anime->slug) }}" data-image="{{ $anime->image ? asset('storage/images/animes/' . $anime->image) : '' }}">Thumbnail</a>
+                                                    <a type="button" class="btn-banner" data-toggle="modal" data-url="{{ route('admin.anime.update.banner', $anime->slug) }}" data-image="{{ $anime->image_banner ? asset('storage/images/animes/banner/' . $anime->image_banner) : '' }}">Banner</a>
+                                                    <div class="bullet"></div>
+                                                    <a type="button" class="btn-thumbnail" data-toggle="modal" data-url="{{ route('admin.anime.update.thumbnail', $anime->slug) }}" data-image="{{ $anime->image_thumbnail ? asset('storage/images/animes/thumbnail/' . $anime->image_thumbnail) : '' }}">Thumbnail</a>
                                                     <div class="bullet"></div>
                                                     <a href="{{ route('admin.anime.episode.index', $anime->slug) }}">Episodes</a>
                                                     <div class="bullet"></div>
@@ -96,13 +98,13 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="" method="post" id="form-thumbnail" enctype="multipart/form-data">
+            <form action="{{ old('url') }}" method="post" id="form-thumbnail" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 
                 <div class="modal-body">
                     <div class="form-group">
-                        <img class="img-fluid w-100 image-preview" src="{{ old('image_prev') }}" alt="Thumbnail Preview">
+                        <img class="image-preview" src="{{ old('image_prev') }}" alt="Thumbnail Preview">
                         <input type="hidden" class="x-coordinate" name="x">
                         <input type="hidden" class="y-coordinate" name="y">
                         <input type="hidden" class="width" name="width">
@@ -119,7 +121,52 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <input type="hidden" name="type" value="thumbnail">
+                    <input type="hidden" name="url" value="{{ old('url') }}" id="thumbnail-url">
                     <input type="hidden" name="image_prev" value="{{ old('image_prev') }}">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary btn-close">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-banner" tabindex="-1" role="dialog" aria-labelledby="modalBannerLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Banner</h5>
+                <button type="button" class="close btn-close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ old('url_banner') }}" method="post" id="form-banner" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                
+                <div class="modal-body">
+                    <div class="form-group">
+                        <img class="image-preview img-fluid w-100" src="{{ old('image_prev_banner') }}" alt="Banner Preview">
+                        <input type="hidden" class="x-coordinate" name="x">
+                        <input type="hidden" class="y-coordinate" name="y">
+                        <input type="hidden" class="width" name="width">
+                        <input type="hidden" class="height" name="height">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only">Image</label>
+                        <input type="file" class="form-control" id="input-image-banner" name="image">
+                        @error('image')
+                            <div class="invalid-feedback d-block">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="type" value="banner">
+                    <input type="hidden" name="url_banner" value="{{ old('url_banner') }}" id="banner-url">
+                    <input type="hidden" name="image_prev_banner" value="{{ old('image_prev_banner') }}">
                     <button type="submit" class="btn btn-primary">Save</button>
                     <button type="button" class="btn btn-secondary btn-close">Close</button>
                 </div>
@@ -136,9 +183,13 @@
 @endsection
 
 @section('script')
-@if ($errors->any()) 
+@if ($errors->any() && old('type') == 'thumbnail') 
 <script>
     $('#modal-thumbnail').modal();
+</script>
+@elseif ($errors->any() && old('type') == 'banner')
+<script>
+    $('#modal-banner').modal();
 </script>
 @endif
 <script src="{{ asset('js/features-posts.js') }}"></script>
@@ -149,7 +200,7 @@
         var $input = this;
 
         $.ajax({
-            url: "{{ route('admin.anime.crop-size') }}",
+            url: "{{ route('admin.anime.crop-size-thumbnail') }}",
             type: 'get',
             success:function(data) {
                 imageCropper($input, parent, data.width, data.height);
@@ -162,14 +213,44 @@
         const url = $(this).data('url');
 
         if (image == '') {
-            image = 'https://via.placeholder.com/1000x500';
+            image = 'https://via.placeholder.com/265x440';
         }
 
         $('#form-thumbnail').attr('action', url);
+        $('#thumbnail-url').val(url);
         $('.image-preview').attr('src', image);
         $('input[name="image_prev"]').val(image);
 
         $('#modal-thumbnail').modal();
+    });
+
+    $('.btn-banner').on('click', function() {
+        let image = $(this).data('image');
+        const url = $(this).data('url');
+
+        if (image == '') {
+            image = 'https://via.placeholder.com/1200x600';
+        }
+
+        $('#form-banner').attr('action', url);
+        $('#banner-url').val(url);
+        $('.image-preview').attr('src', image);
+        $('input[name="image_prev_banner"]').val(image);
+
+        $('#modal-banner').modal();
+    });
+
+    $('#input-image-banner').on('change', function() {
+        var parent = $(this).parent().parent().parent();
+        var $input = this;
+
+        $.ajax({
+            url: "{{ route('admin.anime.crop-size-banner') }}",
+            type: 'get',
+            success:function(data) {
+                imageCropper($input, parent, data.width, data.height);
+            }
+        });
     });
 </script>
 @endsection
