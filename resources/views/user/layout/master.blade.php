@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Anime Template">
-    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="keywords" content="Chunime, Anime Sub Indo, Download Anime, Download Anime Subtitle Indonesia">
+    <meta name="description" content="Chunime.me adalah situs download anime yang mengutamakan kualitas agar penonton merasa nyaman saat mencari ataupun menonton anime">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Anime | Template</title>
+    <title>Chunime - Download Anime Subtitle Bahasa Indonesia</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
-    
+
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v9.0" nonce="MBU7kmMj"></script>
 
