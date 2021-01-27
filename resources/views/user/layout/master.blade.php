@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Chunime.me adalah situs download anime yang mengutamakan kualitas website dan subtitle agar penonton merasa nyaman saat berkunjung dan menonton anime">
     <meta name="keywords" content="Chunime, Anime Sub Indo, Download Anime, Download Anime Subtitle Indonesia">
-    <meta name="description" content="Chunime.me adalah situs download anime yang mengutamakan kualitas agar penonton merasa nyaman saat mencari ataupun menonton anime">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chunime - Download Anime Subtitle Bahasa Indonesia</title>
+
+    <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon" />
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -35,7 +37,7 @@
                 <div class="col-lg-2">
                     <div class="header__logo">
                         <a href="{{ route('user.home') }}">
-                            <img src="/img/logo.png" alt="">
+                            <img src="{{ asset('img/logo.png') }}" alt="">
                         </a>
                     </div>
                 </div>
@@ -74,7 +76,7 @@
             <div class="row justify-content-between">
                 <div class="col-lg-3">
                     <div class="footer__logo">
-                        <a href="{{ route('user.home') }}"><img src="/img/logo.png" alt=""></a>
+                        <a href="{{ route('user.home') }}"><img src="{{ asset('img/logo.png') }}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -83,7 +85,7 @@
                         Copyright &copy;
                         <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
                         is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                            target="_blank">Colorlib</a>
+                            target="_blank" rel="noreferrer noopener">Colorlib</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
 
