@@ -24,6 +24,9 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
+    
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v9.0" nonce="MBU7kmMj"></script>
 
     <!-- Header Section Begin -->
     <header class="header">
