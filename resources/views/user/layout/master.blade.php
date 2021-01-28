@@ -37,7 +37,7 @@
                 <div class="col-lg-2">
                     <div class="header__logo">
                         <a href="{{ route('user.home') }}">
-                            <img src="{{ asset('img/logo.png') }}" alt="">
+                            <img src="{{ asset('img/logo.png') }}" alt="Main Logo">
                         </a>
                     </div>
                 </div>
@@ -73,10 +73,10 @@
             <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
         </div>
         <div class="container">
-            <div class="row justify-content-between">
+            <div class="row justify-content-between align-items-center">
                 <div class="col-lg-3">
                     <div class="footer__logo">
-                        <a href="{{ route('user.home') }}"><img src="{{ asset('img/logo.png') }}" alt=""></a>
+                        <a href="{{ route('user.home') }}"><img src="{{ asset('img/logo.png') }}" alt="Logo Footer"></a>
                     </div>
                 </div>
                 <div class="col-lg-3">
