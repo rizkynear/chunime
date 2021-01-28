@@ -37,7 +37,7 @@
                 <div class="col-lg-2">
                     <div class="header__logo">
                         <a href="{{ route('user.home') }}">
-                            <img src="{{ asset('img/logo.png') }}" alt="Main Logo">
+                            <img src="{{ asset('img/logo-main.png') }}" alt="Main Logo">
                         </a>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
             <div class="row justify-content-between align-items-center">
                 <div class="col-lg-3">
                     <div class="footer__logo">
-                        <a href="{{ route('user.home') }}"><img src="{{ asset('img/logo.png') }}" alt="Logo Footer"></a>
+                        <a href="{{ route('user.home') }}"><img src="{{ asset('img/logo-main.png') }}" alt="Logo Footer"></a>
                     </div>
                 </div>
                 <div class="col-lg-3">
