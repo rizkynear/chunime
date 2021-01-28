@@ -17,7 +17,7 @@
         rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="{{ asset('css/alluser.css')  }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/all-user.css')  }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/customuser.css')  }}" type="text/css">
 </head>
 
@@ -107,14 +107,7 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/player.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('js/mixitup.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/main.min.js') }}"></script>
+    <script src="{{ asset('js/all-user.js') }}"></script>
     
     @yield('script')
 
