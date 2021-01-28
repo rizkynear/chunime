@@ -15,12 +15,12 @@ mix.styles(
     [
         'public/css/bootstrap.min.css',
         'public/css/font-awesome.min.css',
-        'public/css/elegant-icons.css',
+        'public/css/elegant-icons.min.css',
         'public/css/plyr.css',
-        'public/css/nice-select.css',
+        'public/css/nice-select.min.css',
         'public/css/owl.carousel.min.css',
         'public/css/slicknav.min.css',
-        "public/css/styleuser.css"
+        "public/css/styleuser.min.css"
     ],
     "public/css/alluser.css"
 );
@@ -29,12 +29,12 @@ mix.scripts(
     [
         "public/js/jquery-3.3.1.min.js",
         "public/js/bootstrap.min.js",
-        "public/js/player.js",
+        "public/js/player.min.js",
         "public/js/jquery.nice-select.min.js",
         "public/js/mixitup.min.js",
-        "public/js/jquery.slicknav.js",
+        "public/js/jquery.slicknav.min.js",
         "public/js/owl.carousel.min.js",
-        "public/js/main.js"
+        "public/js/main.min.js"
     ],
     "public/js/alluser.js"
 );
