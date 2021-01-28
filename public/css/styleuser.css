@@ -2004,6 +2004,10 @@ ol {
 }
 
 @media only screen and (min-width: 1200px) {
+	.custom-min-height-banner {
+		min-height: 556px;
+	}
+
 	.container {
 		max-width: 1170px;
 	}
@@ -2012,6 +2016,10 @@ ol {
 /* Medium Device = 1200px */
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+	.custom-min-height-banner {
+		min-height: 608px;
+	}
+
 	.hero {
 		overflow: hidden;
 	}
@@ -2030,6 +2038,10 @@ ol {
 /* Tablet Device = 768px */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+	.custom-min-height-banner {
+		min-height: 531px;
+	}
+
 	.hero {
 		overflow: hidden;
 	}
@@ -2135,6 +2147,10 @@ ol {
 /* Wide Mobile = 480px */
 
 @media only screen and (max-width: 767px) {
+	.custom-min-height-banner {
+		min-height: 556px;
+	}
+
 	.hero {
 		overflow: hidden;
 	}
@@ -2276,6 +2292,10 @@ ol {
 /* Small Device = 320px */
 
 @media only screen and (max-width: 479px) {
+	.custom-min-height-banner {
+		min-height: 381px;
+	}
+
 	.hero__slider.owl-carousel .owl-nav {
 		display: none;
 	}
