@@ -17,7 +17,7 @@
         rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="{{ asset('css/all-user.css')  }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/user-all.css')  }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/customuser.css')  }}" type="text/css">
 </head>
 
@@ -33,7 +33,7 @@
     <!-- Header Section Begin -->
     <header class="header">
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-lg-2">
                     <div class="header__logo">
                         <a href="{{ route('user.home') }}">
@@ -107,7 +107,7 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script src="{{ asset('js/all-user.js') }}"></script>
+    <script src="{{ asset('js/user-all.js') }}"></script>
     
     @yield('script')
 

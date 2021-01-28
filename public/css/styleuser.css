@@ -2038,6 +2038,10 @@ ol {
 /* Tablet Device = 768px */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+	.header__logo {
+		max-width: 110px;
+	}
+
 	.custom-min-height-banner {
 		min-height: 531px;
 	}
@@ -2147,6 +2151,10 @@ ol {
 /* Wide Mobile = 480px */
 
 @media only screen and (max-width: 767px) {
+	.header__logo {
+		max-width: 110px;
+	}
+
 	.custom-min-height-banner {
 		min-height: 556px;
 	}
@@ -2292,6 +2300,10 @@ ol {
 /* Small Device = 320px */
 
 @media only screen and (max-width: 479px) {
+	.header__logo {
+		max-width: 100px;
+	}
+
 	.custom-min-height-banner {
 		min-height: 381px;
 	}

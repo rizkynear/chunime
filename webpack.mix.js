@@ -22,7 +22,7 @@ mix.styles(
         'public/css/slicknav.min.css',
         "public/css/styleuser.min.css"
     ],
-    "public/css/all-user.css"
+    "public/css/user-all.css"
 );
 
 mix.scripts(
@@ -36,7 +36,7 @@ mix.scripts(
         "public/js/owl.carousel.min.js",
         "public/js/main.min.js"
     ],
-    "public/js/all-user.js"
+    "public/js/user-all.js"
 );
 
 if (mix.inProduction()) {
