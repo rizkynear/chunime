@@ -14,4 +14,9 @@ class AnimeFilter extends QueryFilter
     {
         return $this->builder->where('title', 'LIKE', "%{$value}%");
     }
+
+    public function keyword($value)
+    {
+        return $this->builder->where('title', 'LIKE', "%{$value}%");
+    }
 }

@@ -50,8 +50,6 @@
                                     <a href="{{ route('user.episode', $episode->slug) }}">
                                         <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/images/animes/thumbnail/' . $episode->anime->image_thumbnail) }}">
                                             <div class="ep">{{ $episode->title }}</div>
-                                            <!-- <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                            <div class="view"><i class="fa fa-eye"></i> 9141</div> -->
                                         </div>
                                     </a>
                                     <div class="product__item__text">

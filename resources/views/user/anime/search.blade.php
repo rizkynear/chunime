@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-6">
                                 <div class="section-title">
-                                    <h4>{{ $genre->name }}</h4>
+                                    <h4>Hasil Pencarian</h4>
                                 </div>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Filter\AnimeFilter;
 use App\Models\Anime;
 
 class AnimeController extends Controller
@@ -24,5 +25,12 @@ class AnimeController extends Controller
         });
 
         return view('user.anime.list')->with(compact('animes'));
+    }
+
+    public function search(Request $request, AnimeFilter $filter)
+    {
+        $animes = Anime::filter($filter)->latest()->paginate(10);
+
+        return view('user.anime.search')->with(compact('animes'));
     }
 }

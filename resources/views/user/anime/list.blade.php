@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Anime Section Begin -->
-<section class="anime-details spad pt-3 pt-sm-5">
+<section class="anime-details spad pt-3 pt-sm-4">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mb-5">
