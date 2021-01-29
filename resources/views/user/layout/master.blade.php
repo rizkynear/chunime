@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="Chunime.me adalah situs download anime yang mengutamakan kualitas website dan subtitle agar penonton merasa nyaman saat berkunjung dan menonton anime">
     <meta name="keywords" content="Chunime, Anime Sub Indo, Download Anime, Download Anime Subtitle Indonesia">
+    <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chunime - Download Anime Subtitle Bahasa Indonesia</title>
