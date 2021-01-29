@@ -28,6 +28,6 @@ Route::group(['as' => 'user.', 'namespace' => 'User'], function() {
     Route::get('anime-list', 'AnimeController@list')->name('anime.list');
     Route::get('genre-list', 'GenreController@list')->name('genre.list');
     Route::get('genres/{genre}', 'GenreController@index')->name('genre');
-    Route::get('{anime}', 'AnimeController@index')->name('anime');
-    Route::get('d/{episode}', 'EpisodeController@index')->name('episode');
+    Route::get('animes/{anime}', 'AnimeController@index')->name('anime');
+    Route::get('{episode}', 'EpisodeController@index')->name('episode');
 });
