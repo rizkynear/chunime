@@ -8,7 +8,7 @@
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chunime - Download Anime Subtitle Bahasa Indonesia</title>
+    <title>Chunime - @yield('sub-title')</title>
 
     <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon" />
 

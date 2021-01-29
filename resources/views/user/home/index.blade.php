@@ -1,5 +1,7 @@
 @extends('user.layout.master')
 
+@section('sub-title', 'Download Anime Subtitle Bahasa Indonesia')
+
 @section('content')
 <!-- Hero Section Begin -->
 <section class="hero pt-3 pt-sm-4">

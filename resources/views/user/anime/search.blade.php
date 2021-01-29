@@ -1,5 +1,7 @@
 @extends('user.layout.master')
 
+@section('sub-title', 'Hasil Pencarian')
+
 @section('content')
 <!-- Product Section Begin -->
 <section class="product-page spad pt-3 pt-sm-4">

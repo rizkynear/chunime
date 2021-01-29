@@ -1,5 +1,7 @@
 @extends('user.layout.master')
 
+@section('sub-title', $episode->anime->title . ' ' .  $episode->title)
+
 @section('content')
 <!-- Anime Section Begin -->
 <section class="anime-details spad pt-3 pt-sm-4">
