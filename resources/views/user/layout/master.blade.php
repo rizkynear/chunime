@@ -17,7 +17,7 @@
         rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="{{ asset('css/user-all.css')  }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/all.css')  }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/customuser.css')  }}" type="text/css">
 </head>
 
