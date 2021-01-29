@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Filter\AnimeFilter;
 use App\Models\Anime;
+use App\Models\Episode;
 
 class AnimeController extends Controller
 {
@@ -32,5 +33,12 @@ class AnimeController extends Controller
         $animes = Anime::filter($filter)->latest()->paginate(10);
 
         return view('user.anime.search')->with(compact('animes'));
+    }
+
+    public function ongoing()
+    {
+        $episodes = Episode::newest()->paginate(12);
+
+        return view('user.anime.ongoing')->with(compact('episodes'));
     }
 }

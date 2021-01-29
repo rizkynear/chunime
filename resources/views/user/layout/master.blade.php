@@ -48,6 +48,7 @@
                                 <li><a href="{{ route('user.home') }}">Home</a></li>
                                 <li><a href="{{ route('user.anime.list') }}">Anime List</a></li>
                                 <li><a href="{{ route('user.genre.list') }}">Genre List</a></li>
+                                <li><a href="{{ route('user.anime.ongoing') }}">Update Terbaru</a></li>
                             </ul>
                         </nav>
                     </div>

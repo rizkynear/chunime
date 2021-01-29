@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $latestEpisode   = Episode::newest()->take(10)->get();
+        $latestEpisode   = Episode::newest()->take(6)->get();
         $recommendAnimes = Anime::completed()->get()->shuffle()->take(6);
         $bannerAnimes    = Anime::hasEpisode()->get()->shuffle()->take(3);
 
