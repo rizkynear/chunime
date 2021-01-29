@@ -2372,3 +2372,7 @@ ol {
 		padding: 18px 20px 20px;
 	}
 }
+
+.bg-dark-low-opacity {
+	background-color: rgba(0, 0, 0, .5);
+}

@@ -6,7 +6,8 @@
     <div class="container">
         <div class="hero__slider owl-carousel">
             @foreach ($bannerAnimes as $anime)
-                <div class="hero__items set-bg custom-min-height-banner" data-setbg="{{ asset('storage/images/animes/banner/' . $anime->image_banner) }}">
+            <div class="set-bg" data-setbg="{{ asset('storage/images/animes/banner/' . $anime->image_banner) }}">
+                <div class="hero__items custom-min-height-banner bg-dark-low-opacity">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
@@ -17,6 +18,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             @endforeach
         </div>
     </div>
