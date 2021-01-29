@@ -12,6 +12,8 @@ class EpisodeController extends Controller
     {
         $downloads = $episode->downloads->groupBy(function($download, $key) {
             return $download->quality;
+        })->sortBy(function($download, $key) {
+            return $key;
         });
 
         $episode->load('anime');
