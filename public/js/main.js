@@ -74,7 +74,8 @@
         smartSpeed: 5000,
         autoHeight: true,
         autoplay: true,
-        mouseDrag: false
+        mouseDrag: false,
+        touchDrag:false
     });
 
     /*------------------

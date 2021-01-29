@@ -1,8 +1,16 @@
 @extends('user.layout.master')
 
+@section('meta')
+<meta name="description" content="Chunime.me adalah situs download anime yang mengutamakan kualitas agar penonton merasa nyaman saat berkunjung dan menonton anime">
+<meta name="keywords" content="Chunime, Download Anime Sub Indo">
+@endsection
+
 @section('sub-title', 'Download Anime Subtitle Bahasa Indonesia')
 
 @section('content')
+<h1 class="invisible position-absolute">
+    Chunime Home
+</h1>
 <!-- Hero Section Begin -->
 <section class="hero pt-3 pt-sm-4">
     <div class="container">

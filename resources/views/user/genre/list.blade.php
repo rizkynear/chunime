@@ -1,5 +1,10 @@
 @extends('user.layout.master')
 
+@section('meta')
+<meta name="description" content="Daftar genre website Chunime.me">
+<meta name="keywords" content="Chunime Genre List, Genre List">
+@endsection
+
 @section('sub-title', 'Genre List')
 
 @section('content')
@@ -10,7 +15,7 @@
             <div class="col-lg-8 mb-5">
                 <div class="genres__list">
                     <div class="section-title">
-                        <h4>Genre List</h4>
+                        <h1>Genre List</h1>
                     </div>
                     <div class="genres">
                         <div class="row">

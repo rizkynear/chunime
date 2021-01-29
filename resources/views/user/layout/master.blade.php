@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Chunime.me adalah situs download anime yang mengutamakan kualitas website dan subtitle agar penonton merasa nyaman saat berkunjung dan menonton anime">
-    <meta name="keywords" content="Chunime, Anime Sub Indo, Download Anime, Download Anime Subtitle Indonesia">
+    @yield('meta')
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -18,7 +17,7 @@
         rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="{{ asset('css/all.css')  }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/all-user.css')  }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/customuser.css')  }}" type="text/css">
 </head>
 
@@ -108,7 +107,7 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script src="{{ asset('js/user-all.js') }}"></script>
+    <script src="{{ asset('js/all.js') }}"></script>
     
     @yield('script')
 

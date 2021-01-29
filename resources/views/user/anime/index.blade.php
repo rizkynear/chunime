@@ -1,5 +1,10 @@
 @extends('user.layout.master')
 
+@section('meta')
+<meta name="description" content="Detail anime {{ $anime->title }}">
+<meta name="keywords" content="{{ $anime->title }}">
+@endsection
+
 @section('sub-title', $anime->title)
 
 @section('content')
@@ -15,7 +20,7 @@
                 <div class="col-lg-9">
                     <div class="anime__details__text">
                         <div class="anime__details__title">
-                            <h3>{{ $anime->title }}</h3>
+                            <h1>{{ $anime->title }}</h1>
                         </div>
                         {!! $anime->description !!}
                         <div class="anime__details__widget">

@@ -1,5 +1,10 @@
 @extends('user.layout.master')
 
+@section('meta')
+<meta name="description" content="Hasil pencarian anime di website Chunime.me">
+<meta name="keywords" content="Chunime Search">
+@endsection
+
 @section('sub-title', 'Hasil Pencarian')
 
 @section('content')
@@ -13,7 +18,7 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-6">
                                 <div class="section-title">
-                                    <h4>Hasil Pencarian</h4>
+                                    <h1>Hasil Pencarian</h1>
                                 </div>
                             </div>
                         </div>

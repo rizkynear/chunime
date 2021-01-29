@@ -116,6 +116,7 @@ ol {
 	margin-bottom: 30px;
 }
 
+.section-title h1,
 .section-title h4,
 .section-title h5 {
 	color: #ffffff;
@@ -127,6 +128,7 @@ ol {
 	font-family: "Oswald", sans-serif;
 }
 
+.section-title h1:after,
 .section-title h4:after,
 .section-title h5:after {
 	position: absolute;
@@ -136,6 +138,10 @@ ol {
 	width: 4px;
 	background: #e53637;
 	content: "";
+}
+
+.section-title h1 {
+	font-size: 24px;
 }
 
 .set-bg {
@@ -997,6 +1003,7 @@ ol {
 	margin-bottom: 20px;
 }
 
+.anime__details__title h1,
 .anime__details__title h3 {
 	color: #ffffff;
 	font-weight: 700;
@@ -1007,6 +1014,10 @@ ol {
 	font-size: 15px;
 	color: #b7b7b7;
 	display: block;
+}
+
+.anime__details__title h1 {
+	font-size: 30px;
 }
 
 .anime__details__rating {
@@ -2375,4 +2386,14 @@ ol {
 
 .bg-dark-low-opacity {
 	background-color: rgba(0, 0, 0, .5);
+}
+
+.section-title h4, .section-title h5 {
+    color: #fff;
+    font-weight: 600;
+    line-height: 21px;
+    text-transform: uppercase;
+    padding-left: 20px;
+    position: relative;
+    font-family: Oswald,sans-serif;
 }

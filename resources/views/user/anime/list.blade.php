@@ -1,5 +1,10 @@
 @extends('user.layout.master')
 
+@section('meta')
+<meta name="description" content="Daftar anime di website Chunime.me yang akan terus di update">
+<meta name="keywords" content="Anime List, Chunime Anime List">
+@endsection
+
 @section('sub-title', 'Anime List')
 
 @section('content')
@@ -12,7 +17,7 @@
                     <div class="col-12">
                         <div class="animes__list">
                             <div class="section-title">
-                                <h4>Anime List</h4>
+                                <h1>Anime List</h1>
                             </div>
                             <div class="anime__details__episodes d-flex justify-content-md-between flex-wrap">
                                 <a href="#a" class="mr-1 mr-md-0">A</a>

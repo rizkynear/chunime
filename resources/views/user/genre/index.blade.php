@@ -1,5 +1,10 @@
 @extends('user.layout.master')
 
+@section('meta')
+<meta name="description" content="Daftar anime yang termasuk dalam genre {{ $genre->name }}">
+<meta name="keywords" content="Genre {{ $genre->name }}, {{ $genre->name }}">
+@endsection
+
 @section('sub-title', 'Genre ' . $genre->name)
 
 @section('content')
@@ -13,7 +18,7 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-6">
                                 <div class="section-title">
-                                    <h4>{{ $genre->name }}</h4>
+                                    <h1>{{ $genre->name }}</h1>
                                 </div>
                             </div>
                         </div>
