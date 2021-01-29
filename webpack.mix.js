@@ -22,7 +22,7 @@ mix.styles(
         'public/css/slicknav.min.css',
         "public/css/styleuser.min.css"
     ],
-    "public/css/all-user.css"
+    "public/css/user.css"
 );
 
 mix.scripts(
