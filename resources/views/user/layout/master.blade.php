@@ -19,6 +19,7 @@
     <!-- Css Styles -->
     <link rel="stylesheet" href="{{ asset('css/user.css')  }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/customuser.css')  }}" type="text/css">
+    <script data-ad-client="ca-pub-5770376965687002" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body>
