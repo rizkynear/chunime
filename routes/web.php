@@ -25,7 +25,8 @@ Route::group(['as' => 'user.', 'namespace' => 'User'], function() {
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::get('search', 'AnimeController@search')->name('search');
-    Route::get('latest-update', 'AnimeController@ongoing')->name('anime.ongoing');
+    Route::get('latest-update', 'AnimeController@latest')->name('anime.latest');
+    Route::get('ongoing', 'AnimeController@ongoing')->name('anime.ongoing');
     Route::get('anime-list', 'AnimeController@list')->name('anime.list');
     Route::get('genre-list', 'GenreController@list')->name('genre.list');
     Route::get('genres/{genre}', 'GenreController@index')->name('genre');

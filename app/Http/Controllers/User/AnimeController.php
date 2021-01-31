@@ -35,10 +35,17 @@ class AnimeController extends Controller
         return view('user.anime.search')->with(compact('animes'));
     }
 
-    public function ongoing()
+    public function latest()
     {
         $episodes = Episode::newest()->paginate(12);
 
-        return view('user.anime.ongoing')->with(compact('episodes'));
+        return view('user.anime.latest')->with(compact('episodes'));
+    }
+
+    public function ongoing()
+    {
+        $animes = Anime::ongoing()->paginate(10);
+
+        return view('user.anime.ongoing')->with(compact('animes'));
     }
 }

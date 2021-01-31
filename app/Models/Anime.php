@@ -62,6 +62,11 @@ class Anime extends Model
         return $query->has('episodes');
     }
 
+    public function scopeOngoing($query)
+    {
+        return $query->where('status', 'LIKE', "%On Going%");
+    }
+
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()

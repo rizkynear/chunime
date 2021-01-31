@@ -1,11 +1,11 @@
 @extends('user.layout.master')
 
 @section('meta')
-<meta name="description" content="Daftar anime ongoing Chunime.me">
-<meta name="keywords" content="Chunime Ongoing">
+<meta name="description" content="Update anime terbaru">
+<meta name="keywords" content="Chunime Update">
 @endsection
 
-@section('sub-title', 'Hasil Pencarian')
+@section('sub-title', 'Update Terbaru')
 
 @section('content')
 <!-- Product Section Begin -->
@@ -18,29 +18,29 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-6">
                                 <div class="section-title">
-                                    <h1>Ongoing List</h1>
+                                    <h1>Update Terbaru</h1>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        @foreach($animes as $anime)
+                        @foreach($episodes as $episode)
                             <div class="col-lg-4 col-md-6 col-6">
                                 <div class="product__item">
-                                    <a href="{{ route('user.anime', $anime->slug) }}">
-                                        <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/images/animes/thumbnail/' . $anime->image_thumbnail) }}">
-                                            <div class="ep">{{ $anime->published_episode }} Episode</div>
+                                    <a href="{{ route('user.episode', $episode->slug) }}">
+                                        <div class="product__item__pic set-bg" data-setbg="{{ asset('storage/images/animes/thumbnail/' . $episode->anime->image_thumbnail) }}">
+                                            <div class="ep">{{ $episode->title }}</div>
                                         </div>
                                     </a>
                                     <div class="product__item__text">
                                         <ul>
-                                            @foreach($anime->genres as $genre)
+                                            @foreach ($episode->anime->genres as $genre)
                                                 @if ($loop->iteration < 3)
-                                                    <li><a href="{{ route('user.genre', $genre->slug) }}" class="text-white"> {{ $genre->name }}</a></li>
+                                                    <li><a href="{{ route('user.genre', $genre->slug) }}" class="text-white">{{ $genre->name }}</a></li>
                                                 @endif
                                             @endforeach
                                         </ul>
-                                        <h5 class="anime-name"><a href="{{ route('user.anime', $anime->slug) }}">{{ $anime->title }}</a></h5>
+                                        <h5 class="anime-name"><a href="{{ route('user.episode', $episode->slug) }}">{{ $episode->anime->title }}</a></h5>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="pt-3">
-                    {{ $animes->appends(Request::except('page'))->links() }}
+                    {{ $episodes->links() }}
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-8">

@@ -49,7 +49,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4">
                             <div class="btn__all">
-                                <a href="{{ route('user.anime.ongoing') }}" class="primary-btn">Lihat Semua <span class="arrow_right"></span></a>
+                                <a href="{{ route('user.anime.latest') }}" class="primary-btn">Lihat Semua <span class="arrow_right"></span></a>
                             </div>
                         </div>
                     </div>
