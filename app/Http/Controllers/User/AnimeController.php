@@ -44,7 +44,7 @@ class AnimeController extends Controller
 
     public function ongoing()
     {
-        $animes = Anime::ongoing()->paginate(10);
+        $animes = Anime::ongoing()->paginate(12);
 
         return view('user.anime.ongoing')->with(compact('animes'));
     }

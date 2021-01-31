@@ -5,7 +5,7 @@
 <meta name="keywords" content="Chunime Ongoing">
 @endsection
 
-@section('sub-title', 'Hasil Pencarian')
+@section('sub-title', 'Ongoing List')
 
 @section('content')
 <!-- Product Section Begin -->
