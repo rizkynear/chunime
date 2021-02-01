@@ -11,7 +11,7 @@
 <!-- Anime Section Begin -->
 <section class="anime-details spad pt-3 pt-sm-4">
     <div class="container">
-        <div class="anime__details__content">
+        <div class="anime__details__content mb-4">
             <div class="row align-items-center">
                 <div class="col-lg-3">
                     <div class="anime__details__pic set-bg" data-setbg="{{ asset('storage/images/animes/thumbnail/' . $episode->anime->image_thumbnail) }}">
