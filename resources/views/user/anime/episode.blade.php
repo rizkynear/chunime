@@ -19,10 +19,20 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="anime__details__text">
-                        <div class="anime__details__title">
-                            <h1>{{ $episode->anime->title }} {{ $episode->title }}</h1>
+                        <div class="anime__details__title mb-2">
+                            <h1>{{ $episode->anime->title }} <br/> <span class="text-small">{{ $episode->title }}</span></h1>
                         </div>
-                        {!! $episode->anime->description !!}
+                        <div class="anime__video__player mb-2">
+                            <iframe src="https://acefile.co/player/36278086" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO height="315" allowfullscreen="true" style="width: 100%;"></iframe>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#" class="d-block btn btn-primary">360P</a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="d-block btn btn-primary">480P</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
