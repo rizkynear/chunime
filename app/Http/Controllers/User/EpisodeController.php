@@ -17,6 +17,10 @@ class EpisodeController extends Controller
             return $key;
         });
 
+        $episodeList = $episode->anime->episodes->sortBy(function($anime, $key) {
+            return $anime->title;
+        });
+
         $stream = $episode->streams()->default()->first();
 
         if ($request->has('stream') && ($request->stream == '360' || $request->stream == '480')) {
@@ -25,6 +29,6 @@ class EpisodeController extends Controller
 
         $episode->load('anime');
 
-        return view('user.anime.episode')->with(compact('episode', 'downloads', 'stream'));
+        return view('user.anime.episode')->with(compact('episode', 'downloads', 'stream', 'episodeList'));
     }
 }

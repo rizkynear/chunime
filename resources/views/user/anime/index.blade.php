@@ -59,7 +59,7 @@
                     <div class="section-title">
                         <h5>Episode List</h5>
                     </div>
-                    <div class="episode__list">
+                    <div class="episode__list overflow-auto" style="max-height: 400px;">
                         @foreach ($anime->episodes as $episode)
                             @if ($episode->is_published)
                                 <div class="episode__item d-flex text-white justify-content-between border-bottom border-white py-3 align-items-center">

@@ -19,22 +19,38 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="anime__details__text">
-                        <div class="anime__details__title mb-2">
-                            <h1>{{ $episode->anime->title }} <br/> <span class="text-small">{{ $episode->title }}</span></h1>
-                        </div>
-                        <div class="anime__video__player mb-2">
-                            @if (is_null($stream))
-                                <p>Maaf saat ini stream tidak tersedia</p>
-                            @else 
-                                <iframe src="{{ $stream->link }}" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO height="320" allowfullscreen="true" style="width: 100%;"></iframe>
-                            @endif
-                        </div>
                         <div class="row">
-                            <div class="col-6 anime__details__episodes text-center mb-0">
-                                <a href="{{ request()->fullUrlWithQuery(['stream' => '360']) }}" class="d-block py-2">360P</a>
+                            <div class="col-12 mb-3 mb-md-0">
+                                <div class="anime__details__title mb-2 d-md-flex justify-content-md-between">
+                                    <h1>{{ $episode->anime->title }} <br/> <span class="text-small">{{ $episode->title }}</span></h1>
+                                    <div class="product__page__filter">
+                                        <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                                            <option value="">Pilih Episode</option>
+                                            @foreach($episodeList as $episode)
+                                                @if($episode->is_published)
+                                                    <option value="{{ route('user.episode', $episode->slug) }}">{{ $episode->title }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-6 anime__details__episodes text-center mb-0">
-                                <a href="{{ request()->fullUrlWithQuery(['stream' => '480']) }}" class="d-block py-2">480P</a>
+                            <div class="col-12">
+                                <div class="anime__video__player mb-2">
+                                    @if (is_null($stream))
+                                        <p>Maaf saat ini stream tidak tersedia</p>
+                                    @else 
+                                        <iframe src="{{ $stream->link }}" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO height="320" allowfullscreen="true" style="width: 100%;"></iframe>
+                                    @endif
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 anime__details__episodes text-center mb-0">
+                                        <a href="{{ request()->fullUrlWithQuery(['stream' => '360']) }}" class="d-block py-2">360P</a>
+                                    </div>
+                                    <div class="col-6 anime__details__episodes text-center mb-0">
+                                        <a href="{{ request()->fullUrlWithQuery(['stream' => '480']) }}" class="d-block py-2">480P</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
