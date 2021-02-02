@@ -87,11 +87,3 @@
 </section>
 <!-- Anime Section End -->
 @endsection
-
-@section('script')
-<script type="text/javascript">
-    var ouo_token = 'g3GkyK6o';
-    var domains = ['acefile.co', 'drive.google.com', 'solidfiles.com', 'zippyshare.com']; 
-</script>
-<script src="//cdn.ouo.io/js/full-page-script.js"></script>
-@endsection
