@@ -11,9 +11,6 @@
             <a href="{{ route('admin.anime.episode.index', $anime->slug) }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
         </div>
         <h1>{{ $anime->title }} {{ $episode->title }}</h1>
-        <div class="section-header-button">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modal-add">Add New Download</button>
-        </div>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item"><a href="{{ route('admin.anime.index') }}">Animes</a></div>
             <div class="breadcrumb-item"><a href="{{ route('admin.anime.episode.index', $anime->slug) }}">{{ $anime->title }}</a></div>
@@ -28,8 +25,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between">
                         <h4>All Downloads</h4>
+                        <div>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#modal-add">Add New Download</button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#modal-generate">Generate Link</button>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -121,6 +122,31 @@
                 <div class="modal-footer">
                     <input type="hidden" name="form_type" value="store">
                     <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-generate" tabindex="-1" role="dialog" aria-labelledby="modalGenerateLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Generate Link</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="https://ouo.io/api/g3GkyK6o" method="get" target="_blank">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Link</label>
+                        <input type="text" class="form-control" name="s">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Generate</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </form>
