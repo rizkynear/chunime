@@ -38,6 +38,13 @@ Route::group(['prefix' => 'animes', 'as' => 'anime.'], function () {
             Route::patch('{download}/update', 'DownloadController@update')->name('update');
             Route::delete('{download}/delete', 'DownloadController@delete')->name('delete');
         });
+
+        Route::group(['prefix' => '{episode}/streams', 'as' => 'stream.'], function() {
+            Route::get('/', 'StreamController@index')->name('index');
+            Route::post('store', 'StreamController@store')->name('store');
+            Route::patch('{stream}/update', 'StreamController@update')->name('update');
+            Route::delete('{stream}/delete', 'StreamController@delete')->name('delete');
+        });
     });
 });
 

@@ -12,24 +12,24 @@
         </div>
         <h1>{{ $anime->title }} {{ $episode->title }}</h1>
         <div class="section-header-button">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modal-add">Add New Download</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modal-add">Add New Stream</button>
         </div>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item"><a href="{{ route('admin.anime.index') }}">Animes</a></div>
             <div class="breadcrumb-item"><a href="{{ route('admin.anime.episode.index', $anime->slug) }}">{{ $anime->title }}</a></div>
-            <div class="breadcrumb-item">Downloads</div>
+            <div class="breadcrumb-item">Streams</div>
         </div>
     </div>
     <div class="section-body">
-        <h2 class="section-title">Downloads</h2>
+        <h2 class="section-title">Streams</h2>
         <p class="section-lead">
-            You can manage all Downloads, such as editing, deleting and more.
+            You can manage all Streams, such as editing, deleting and more.
         </p>
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>All Downloads</h4>
+                        <h4>All Streams</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -43,18 +43,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($episode->downloads as $download)
+                                    @foreach ($episode->streams as $stream)
                                         <tr>
-                                            <td>{{ $download->server_name }}
+                                            <td>{{ $stream->server_name }}
                                                 <div class="table-links">
-                                                    <a type="button" data-toggle="modal" class="btn-edit" data-params="{{ $download }}" data-url="{{ route('admin.anime.episode.download.update', [$anime->slug, $episode->slug, $download->id]) }}">Edit</a>
+                                                    <a type="button" data-toggle="modal" class="btn-edit" data-params="{{ $stream }}" data-url="{{ route('admin.anime.episode.stream.update', [$anime->slug, $episode->slug, $stream->id]) }}">Edit</a>
                                                     <div class="bullet"></div>
-                                                    <a type="button" class="text-danger btn-delete" data-url="{{ route('admin.anime.episode.download.delete', [$anime->slug, $episode->slug, $download->id]) }}">Delete</a>
+                                                    <a type="button" class="text-danger btn-delete" data-url="{{ route('admin.anime.episode.stream.delete', [$anime->slug, $episode->slug, $stream->id]) }}">Delete</a>
                                                 </div>
                                             </td>
-                                            <td>{{ $download->quality }}</td>
-                                            <td>{{ $download->link }}</td>
-                                            <td>{{ date('d M Y', strtotime($download->created_at)) }}</td>
+                                            <td>{{ $stream->quality }}</td>
+                                            <td>{{ $stream->link }}</td>
+                                            <td>{{ date('d M Y', strtotime($stream->created_at)) }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -71,12 +71,12 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add New Download</h5>
+                <h5 class="modal-title">Add New Stream</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('admin.anime.episode.download.store', [$anime->slug, $episode->slug]) }}" method="post">
+            <form action="{{ route('admin.anime.episode.stream.store', [$anime->slug, $episode->slug]) }}" method="post">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -132,7 +132,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit Download</h5>
+                <h5 class="modal-title">Edit Stream</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

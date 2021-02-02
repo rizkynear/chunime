@@ -31,6 +31,11 @@ class Episode extends Model
         return $this->hasMany(Download::class);
     }
 
+    public function streams()
+    {
+        return $this->hasMany(Stream::class);
+    }
+
     public function getStatusNameAttribute()
     {
         $status = 'Published';

@@ -51,6 +51,8 @@
                                                         <a type="button" class="btn-publish" data-url="{{ route('admin.anime.episode.publish', [$anime->slug, $episode->slug]) }}">Publish</a>
                                                         <div class="bullet"></div>
                                                     @endif
+                                                    <a href="{{ route('admin.anime.episode.stream.index', [$anime->slug, $episode->slug]) }}">Streams</a>
+                                                    <div class="bullet"></div>
                                                     <a href="{{ route('admin.anime.episode.download.index', [$anime->slug, $episode->slug]) }}">Downloads</a>
                                                     <div class="bullet"></div>
                                                     <a type="button" data-toggle="modal" class="btn-edit" data-params="{{ $episode }}" data-url="{{ route('admin.anime.episode.update', [$anime->slug, $episode->slug]) }}">Edit</a>
