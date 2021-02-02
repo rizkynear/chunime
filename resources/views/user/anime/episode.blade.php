@@ -12,7 +12,7 @@
 <section class="anime-details spad pt-3 pt-sm-4">
     <div class="container">
         <div class="anime__details__content mb-4">
-            <div class="row align-items-center">
+            <div class="row">
                 <div class="col-lg-3">
                     <div class="anime__details__pic set-bg" data-setbg="{{ asset('storage/images/animes/thumbnail/' . $episode->anime->image_thumbnail) }}">
                     </div>
@@ -23,14 +23,18 @@
                             <h1>{{ $episode->anime->title }} <br/> <span class="text-small">{{ $episode->title }}</span></h1>
                         </div>
                         <div class="anime__video__player mb-2">
-                            <iframe src="https://acefile.co/player/36278086" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO height="300" allowfullscreen="true" style="width: 100%;"></iframe>
+                            @if (is_null($stream))
+                                <p>Maaf saat ini stream tidak tersedia</p>
+                            @else 
+                                <iframe src="{{ $stream->link }}" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO height="320" allowfullscreen="true" style="width: 100%;"></iframe>
+                            @endif
                         </div>
                         <div class="row">
                             <div class="col-6 anime__details__episodes text-center mb-0">
-                                <a href="#" class="d-block py-2">360P</a>
+                                <a href="{{ request()->fullUrlWithQuery(['stream' => '360']) }}" class="d-block py-2">360P</a>
                             </div>
                             <div class="col-6 anime__details__episodes text-center mb-0">
-                                <a href="#" class="d-block py-2">480P</a>
+                                <a href="{{ request()->fullUrlWithQuery(['stream' => '480']) }}" class="d-block py-2">480P</a>
                             </div>
                         </div>
                     </div>
